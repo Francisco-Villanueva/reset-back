@@ -1,4 +1,4 @@
-const { Barber, Appointment, WorkHours } = require("../db/models");
+const { Barber, Appointment, WorkHours } = require("../models");
 
 class BarberServices {
   static async getBarbers() {

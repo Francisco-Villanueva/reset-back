@@ -1,4 +1,4 @@
-const { WorkHours } = require("../db/models");
+const { WorkHours } = require("../models");
 
 class WorkHoursServices {
   static async createWorkHours(barberId, data) {

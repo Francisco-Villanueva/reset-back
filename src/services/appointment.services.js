@@ -1,4 +1,4 @@
-const { Appointment, AppointMentSlots } = require("../db/models");
+const { Appointment, AppointMentSlots } = require("../models");
 
 class AppointmentServices {
   static async getAllAppointments(data) {

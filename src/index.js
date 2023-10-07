@@ -4,7 +4,7 @@ const app = express();
 const routes = require("./routes");
 const cors = require("cors");
 const db = require("./db");
-const models = require("./db/models");
+const models = require("./models");
 const corsOptions = {
   origin: "http://localhost:5173",
 };
