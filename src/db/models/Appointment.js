@@ -1,27 +1,27 @@
 const { Model, DataTypes } = require("sequelize");
 const db = require("../index");
 
-class Turno extends Model {}
-Turno.init(
+class Appointment extends Model {}
+Appointment.init(
   {
-    client_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    client_email: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
         isEmail: true,
       },
     },
-    client_number: {
-      type: DataTypes.BIGINT,
+    phone: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     time: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: true,
     },
     date: {
       type: DataTypes.DATEONLY,
@@ -29,20 +29,20 @@ Turno.init(
     },
     barberId: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    dayId: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-    },
-    isBooked: {
-      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: false, // Por defecto, los turnos están disponibles
     },
+    // dayId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: true,
+    // },
+    // isBooked: {
+    //   type: DataTypes.BOOLEAN,
+    //   allowNull: false,
+    //   defaultValue: false,
+    // },
   },
 
-  { sequelize: db, modelName: "turno", timestamps: false }
+  { sequelize: db, modelName: "appointment", timestamps: false }
 );
 
-module.exports = Turno;
+module.exports = Appointment;

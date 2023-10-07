@@ -1,17 +1,19 @@
 const Barber = require("./Barber");
-const Day = require("./Day");
-const Horario = require("./Horario");
-const Turno = require("./Turno");
+const Appointment = require("./Appointment");
+const AppointMentSlots = require("./AppointMentSlots");
+const WorkHours = require("./WorkHours");
 
-Barber.hasMany(Turno, { as: "barber_turno" });
-Barber.hasMany(Horario, { as: "barber_horario" });
+Barber.hasMany(Appointment);
+Barber.hasMany(AppointMentSlots);
+Barber.hasMany(WorkHours);
 
-Day.hasMany(Turno, { as: "day_turno" });
-Day.hasMany(Horario, { as: "day_horario" });
+// WorkHours.belongsTo(Barber);
+// Day.hasMany(Turno, { as: "day_turno" });
+// Day.hasMany(Horario, { as: "day_horario" });
 
 module.exports = {
   Barber,
-  Turno,
-  Day,
-  Horario,
+  Appointment,
+  WorkHours,
+  AppointMentSlots,
 };

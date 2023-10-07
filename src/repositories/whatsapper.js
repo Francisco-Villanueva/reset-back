@@ -16,7 +16,7 @@ client.on("message", (message) => {
   }
 });
 
-client.initialize();
+// client.initialize();
 
 // Función para enviar un mensaje por WhatsApp
 async function enviarMensaje(numero, mensaje) {

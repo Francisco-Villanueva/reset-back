@@ -5,17 +5,17 @@ class Barber extends Model {}
 
 Barber.init(
   {
-    barber_firstName: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    barber_lastName: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    barber_urlPhoto: {
+    urLPhoto: {
       type: DataTypes.STRING,
-      // allowNull: false,
+      allowNull: true,
     },
   },
   {
