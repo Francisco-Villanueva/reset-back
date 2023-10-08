@@ -7,8 +7,8 @@ class WorkHoursServices {
       defaults: data,
     });
   }
-  static async getWorkHours(id) {
-    return await WorkHours.findByPk(id);
+  static async getWorkHours(barberId) {
+    return await WorkHours.findOne({ where: { barberId } });
   }
   static async updateWorkHours(id, data) {
     return await WorkHours.update(data, {
