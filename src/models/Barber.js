@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require("sequelize");
-const db = require("../index");
+const db = require("../db");
 
 class Barber extends Model {}
 
@@ -16,6 +16,18 @@ Barber.init(
     urLPhoto: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    start_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    end_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    hours: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
     },
   },
   {

@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require("sequelize");
-const db = require("../index");
+const db = require("../db");
 class AppointMentSlots extends Model {}
 AppointMentSlots.init(
   {
