@@ -17,6 +17,18 @@ Barber.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
+    start_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    end_time: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    hours: {
+      type: DataTypes.ARRAY(DataTypes.STRING),
+      allowNull: false,
+    },
   },
   {
     sequelize: db,

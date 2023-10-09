@@ -61,8 +61,8 @@ function sendMail(data) {
           <h2>Detalles del turno</h2>
           <p>Hola <strong>${data.name}</strong>,</p>
           <p>
-            Has agendado un turno con para el <strong>${data.date}</strong> a las
-            <strong>${data.time}</strong>.
+            Has agendado un turno con <strong>  ${data.barber} </strong> para el <strong>${data.date}</strong> a las
+            <strong>${data.time}</strong>
           </p>
           <p>Para cancelar el turno, haz clic en el siguiente enlace:</p>
           <a class="button" href="http://localhost:5173/turnos/${data.id}"

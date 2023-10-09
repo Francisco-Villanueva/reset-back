@@ -42,6 +42,7 @@ class AppointmentController {
 
       const dataEmail = {
         ...resp.newAppointment.dataValues,
+        barber: checkBarber.name,
       };
 
       sendMail(dataEmail);
