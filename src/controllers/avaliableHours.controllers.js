@@ -20,11 +20,12 @@ class AvliableHoursController {
         date,
         barberId
       );
-      const { hours } = await BarberServices.getOneBarber(barberId);
+      const oneBarber = await BarberServices.getOneBarber(barberId);
+
       const bussySlots = slots
         .filter((slot) => !slot.avaliable)
         .map((slot) => slot.time);
-      const slotsDay = hours.map((hs) => ({
+      const slotsDay = oneBarber.hours.map((hs) => ({
         hs: hs,
         avaliable: !bussySlots.includes(hs),
       }));
