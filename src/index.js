@@ -5,6 +5,7 @@ const routes = require("./routes");
 const cors = require("cors");
 const db = require("./db");
 const models = require("./models");
+const client = require("./repositories/whatsapper");
 const corsOptions = {
   origin: ["http://localhost:5173", "http://localhost:3000"],
 };
