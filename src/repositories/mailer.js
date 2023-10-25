@@ -29,6 +29,7 @@ function sendMail(data) {
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
+            border: 1px solid #333;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
           }
@@ -42,12 +43,12 @@ function sendMail(data) {
           .button {
             display: inline-block;
             padding: 10px 20px;
-            margin-top: 20px;
+            margin: 0 auto;
             font-size: 16px;
             font-weight: bold;
             text-align: center;
             text-decoration: none;
-            background-color: #007bff;
+            background-color: #347469;
             color: #fff !important;
             border-radius: 5px;
           }
@@ -55,22 +56,23 @@ function sendMail(data) {
       </head>
       <body>
         <div class="container">
-        <div style="display: flex; justify-content: center">
-        <h1 style="font-weight: 400">~ RESET HAIR STUDIO ~</h1>
-        </div>
+          <div style="display: flex; justify-content: center">
+            <h1 style="font-weight: 400">~ RESET HAIR STUDIO ~</h1>
+          </div>
           <h2>Detalles del turno</h2>
           <p>Hola <strong>${data.name}</strong>,</p>
           <p>
-            Has agendado un turno con <strong>  ${data.barber} </strong> para el <strong>${data.date}</strong> a las
-            <strong>${data.time}</strong>
+            Has agendado un turno con para el <strong>${data.date}</strong> a las
+            <strong>${data.time}</strong>.
           </p>
-          <p>Para cancelar el turno, haz clic en el siguiente enlace:</p>
+          <p>Para cancelar el turno, haz click en el siguiente boton</p>
           <a class="button" href="http://localhost:5173/turnos/${data.id}"
             >Cancelar turno</a
           >
         </div>
       </body>
-    </html>`,
+    </html>
+    `,
     // text: `Has agendado un turno para el ${data.date} a las ${data.time}. /n Para cancelar el turno, ingresar a: http://localhost:5173/turnos/${data.id}  `,
   };
 
