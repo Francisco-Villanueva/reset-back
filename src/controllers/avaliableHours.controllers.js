@@ -25,7 +25,7 @@ class AvliableHoursController {
       const bussySlots = slots
         .filter((slot) => !slot.avaliable)
         .map((slot) => slot.time);
-      const slotsDay = oneBarber.hours.map((hs) => ({
+      const slotsDay = oneBarber?.hours.map((hs) => ({
         hs: hs,
         avaliable: !bussySlots.includes(hs),
       }));

@@ -1,0 +1,29 @@
+2023/10/26-18:50:03.090 2b64 Reusing MANIFEST C:\Users\Pancho\Desktop\Projects\reset-studio\api\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/10/26-18:50:03.090 2b64 Recovering log #2831
+2023/10/26-18:50:03.092 2b64 Reusing old log C:\Users\Pancho\Desktop\Projects\reset-studio\api\.wwebjs_auth\session\Default\IndexedDB\https_web.whatsapp.com_0.indexeddb.leveldb/002831.log 
+2023/10/26-18:52:27.573 4054 Compacting 1@1 + 11@2 files
+2023/10/26-18:52:27.970 4054 Generated table #2858@1: 111239 keys, 2263831 bytes
+2023/10/26-18:52:28.158 4054 Generated table #2859@1: 102994 keys, 2253716 bytes
+2023/10/26-18:52:28.323 4054 Generated table #2860@1: 100225 keys, 2250677 bytes
+2023/10/26-18:52:28.505 4054 Generated table #2861@1: 100643 keys, 2250585 bytes
+2023/10/26-18:52:28.649 4054 Generated table #2862@1: 99490 keys, 2248672 bytes
+2023/10/26-18:52:28.824 4054 Generated table #2863@1: 100520 keys, 2249417 bytes
+2023/10/26-18:52:28.985 4054 Generated table #2864@1: 98171 keys, 2248548 bytes
+2023/10/26-18:52:29.146 4054 Generated table #2865@1: 100933 keys, 2251206 bytes
+2023/10/26-18:52:29.381 4054 Generated table #2866@1: 97714 keys, 2247484 bytes
+2023/10/26-18:52:29.557 4054 Generated table #2867@1: 102230 keys, 2250951 bytes
+2023/10/26-18:52:29.565 4054 Generated table #2868@1: 318 keys, 7010 bytes
+2023/10/26-18:52:29.565 4054 Compacted 1@1 + 11@2 files => 22522097 bytes
+2023/10/26-18:52:29.570 4054 compacted to: files[ 0 1 41 0 0 0 0 ]
+2023/10/26-18:52:29.571 4054 Delete type=2 #2784
+2023/10/26-18:52:29.571 4054 Delete type=2 #2785
+2023/10/26-18:52:29.571 4054 Delete type=2 #2786
+2023/10/26-18:52:29.571 4054 Delete type=2 #2787
+2023/10/26-18:52:29.571 4054 Delete type=2 #2788
+2023/10/26-18:52:29.571 4054 Delete type=2 #2824
+2023/10/26-18:52:29.571 4054 Delete type=2 #2825
+2023/10/26-18:52:29.571 4054 Delete type=2 #2826
+2023/10/26-18:52:29.571 4054 Delete type=2 #2827
+2023/10/26-18:52:29.571 4054 Delete type=2 #2828
+2023/10/26-18:52:29.572 4054 Delete type=2 #2829
+2023/10/26-18:52:29.572 4054 Delete type=2 #2835
