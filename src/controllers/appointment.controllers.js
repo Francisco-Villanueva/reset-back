@@ -1,6 +1,8 @@
 const AppointmentServices = require("../services/appointment.services");
 const BarberServices = require("../services/barber.services");
 const { sendMail } = require("../repositories/mailer");
+const WhatsAppServices = require("../services/whatsApp.services");
+const { createMessage } = require("../utils/messages");
 class AppointmentController {
   static async getAllAppointments(req, res, next) {
     try {
@@ -46,6 +48,11 @@ class AppointmentController {
       };
 
       sendMail(dataEmail);
+
+      const turno = resp.newAppointment;
+      const wpToSend = createMessage(turno.date, turno.time, checkBarber.name);
+      console.log("TURNO:\n", resp.newAppointment);
+      WhatsAppServices.sendWhatsapp(resp.newAppointment.phone, wpToSend);
       res.status(201).json(dataEmail);
     } catch (error) {
       next(error);

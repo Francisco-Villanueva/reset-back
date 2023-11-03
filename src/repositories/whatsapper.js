@@ -1,19 +1,17 @@
 const qrcode = require("qrcode-terminal");
 const fs = require("fs");
-const { Client, LegacySessionAuth } = require("whatsapp-web.js");
+const { Client, LocalAuth } = require("whatsapp-web.js");
 
-const client = new Client({});
+const client = new Client({
+  authStrategy: new LocalAuth(),
+});
 
 client.on("qr", (qr) => {
   qrcode.generate(qr, { small: true });
 });
 
 client.on("ready", async () => {
-  console.log("Client is ready!");
-});
-
-client.on("message", (message) => {
-  console.log(message.body);
+  console.log(" ---------------- WHATSAHPP CONNECTED! -------------------");
 });
 
 // client.initialize();
