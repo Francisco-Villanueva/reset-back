@@ -14,5 +14,5 @@ client.on("ready", async () => {
   console.log(" ---------------- WHATSAHPP CONNECTED! -------------------");
 });
 
-client.initialize();
+// client.initialize();
 module.exports = client;

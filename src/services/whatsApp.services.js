@@ -1,4 +1,5 @@
 const client = require("../repositories/whatsapper");
+const qrcode = require("qrcode-terminal");
 
 class WhatsAppServices {
   static async sendWhatsapp(numero, mensaje) {
@@ -6,11 +7,14 @@ class WhatsAppServices {
       const chat = await client.getChatById("549" + numero + "@c.us");
       await chat.sendMessage(mensaje);
 
-      console.log("MENSAJE ENVIADO!");
       return "mensaje enviado";
     } catch (error) {
       console.error("Error al enviar el mensaje:", error);
     }
+  }
+
+  static getQR() {
+    return qrcode.generate();
   }
 }
 module.exports = WhatsAppServices;

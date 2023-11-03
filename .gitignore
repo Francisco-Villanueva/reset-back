@@ -4,7 +4,8 @@
 # Local environment configuration file
 /.env
 /.env.testing
-
+/.wwebjs_auth
+/.wwebjs_cache
 # Files generated when running the application
 /dist
 /build

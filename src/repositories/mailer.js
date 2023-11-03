@@ -1,19 +1,19 @@
 const nodemailer = require("nodemailer");
+require("dotenv").config();
+const { MAIL_PW, MAIL } = process.env;
 
-// Configura el transporte del correo electrónico
 const transporter = nodemailer.createTransport({
-  service: "Gmail", // Cambia esto al servicio de correo que estés utilizando
+  service: "Gmail",
   auth: {
-    user: "panchovillanueva99@gmail.com", // Cambia esto a tu dirección de correo electrónico
-    pass: "zarivmfbiupnapes", // Cambia esto a tu contraseña
+    user: MAIL,
+    pass: MAIL_PW,
   },
 });
 
-// Función para enviar el correo electrónico
 function sendMail(data) {
   const mailOptions = {
-    from: "panchovillanuevaj99@gmail.com", // Cambia esto a tu dirección de correo electrónico
-    to: data.email, // Usar la dirección de correo proporcionada en la data
+    from: MAIL,
+    to: data.email,
     subject: "Detalles del turno",
     html: `<!DOCTYPE html>
     <html>
@@ -63,7 +63,7 @@ function sendMail(data) {
           <p>Hola <strong>${data.name}</strong>,</p>
           <p>
             Has agendado un turno con para el <strong>${data.date}</strong> a las
-            <strong>${data.time}</strong>.
+            <strong>${data.time}</strong>, con  <strong>${data.barber}</strong> 
           </p>
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
           <a class="button" href="http://localhost:5173/turnos/${data.id}"
@@ -73,7 +73,6 @@ function sendMail(data) {
       </body>
     </html>
     `,
-    // text: `Has agendado un turno para el ${data.date} a las ${data.time}. /n Para cancelar el turno, ingresar a: http://localhost:5173/turnos/${data.id}  `,
   };
 
   transporter.sendMail(mailOptions, function (error, info) {
