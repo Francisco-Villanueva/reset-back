@@ -16,8 +16,8 @@ app.use(express.json());
 
 app.use("/api", routes);
 
-db.sync({ alter: true }).then(() => {
-  app.listen(4000, () => {
+db.sync({ force: true }).then(() => {
+  app.listen(5432, () => {
     console.log(`server running on port 4000, inicando wp`);
   });
 });
