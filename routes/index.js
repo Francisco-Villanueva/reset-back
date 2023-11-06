@@ -27,7 +27,7 @@ router.post("/wp", (req, res) => {
 router.post("/test", (req, res) => {
   const data = {
     email: "franciscovillanuevaj99@gmail.com",
-    name: "panchio",
+    name: "pancho",
     date: "Lunes 06",
     time: "18:00 HS",
   };
