@@ -5,5 +5,6 @@ const { RENDER_URL } = process.env;
 const db = new Sequelize(RENDER_URL, {
   dialect: "postgres",
   logging: false,
+  dialectOptions: {},
 });
 module.exports = db;
