@@ -65,7 +65,7 @@ function sendMail(data) {
             <strong>${data.time}</strong>, con  <strong>${data.barber}</strong> 
           </p>
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
-          <a class="button" href="http://localhost:5173/turnos/${data.id}"
+          <a class="button" href="https://reset-client.vercel.app/turnos/${data.id}"
             >Cancelar turno</a
           >
         </div>
