@@ -17,6 +17,9 @@ app.use(cors());
 app.use(express.json());
 app.use("/api", routes);
 
+db.sync({ alter: true }).then(() => {
+  console.log("db connected successfully");
+});
 app.listen(PORT, () => {
   console.log(`server running on port ${PORT}, inicando wp`);
 });
