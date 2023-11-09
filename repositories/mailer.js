@@ -51,6 +51,14 @@ function sendMail(data) {
             color: #fff !important;
             border-radius: 5px;
           }
+          .datos {
+            display: flex;
+            flex-direction: column;
+            padding-left: 1em;
+          }
+          .datos p {
+            margin: 0;
+          }
         </style>
       </head>
       <body>
@@ -59,11 +67,16 @@ function sendMail(data) {
             <h1 style="font-weight: 400">~ RESET HAIR STUDIO ~</h1>
           </div>
           <h2>Detalles del turno</h2>
-          <p>Hola <strong>${data.name}</strong>,</p>
-          <p>
-            Has agendado un turno con para el <strong>${data.date}</strong> a las
-            <strong>${data.time}</strong>, con  <strong>${data.barber}</strong> 
-          </p>
+          <p>Hola, <strong>${data.name}</strong>.</p>
+          <p>Has agendado un turno con <strong>Reset Hair Sutdio</strong>:</p>
+          <div class="datos">
+            <p>Peluquero: <strong>${data.barber}</strong></p>
+            <p>Dia: <strong>${data.date}</strong></p>
+            <p>Horario: <strong>${data.time}</strong></p>
+          </div>
+    
+          <hr />
+    
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
           <a class="button" href="https://reset-client.vercel.app/turnos/${data.id}"
             >Cancelar turno</a
