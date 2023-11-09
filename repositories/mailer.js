@@ -68,14 +68,12 @@ function sendMail(data) {
           </div>
           <h2>Detalles del turno</h2>
           <p>Hola, <strong>${data.name}</strong>.</p>
-          <p>Has agendado un turno con <strong>Reset Hair Sutdio</strong>:</p> <br/>
-          <div class="datos">
-            <p>Peluquero: <strong>${data.barber}</strong></p> <br/>
-            <p>Dia: <strong>${data.date}</strong></p> <br/>
-            <p>Horario: <strong>${data.time}</strong></p> <br/>
-          </div>
-    
+          <p>Has agendado un turno con <strong>Reset Hair Sutdio</strong>:</p> 
           <hr />
+            <p>Peluquero: <strong>${data.barber}</strong></p> 
+            <p>Dia: <strong>${data.date}</strong></p>
+            <p>Horario: <strong>${data.time}</strong></p> 
+            <hr />
     
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
           <a class="button" href="https://reset-client.vercel.app/turnos/${data.id}"
