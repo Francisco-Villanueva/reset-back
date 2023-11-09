@@ -59,6 +59,9 @@ function sendMail(data) {
           .datos p {
             margin: 0;
           }
+          .datos p strong {
+            margin: 0 4px;
+          }
         </style>
       </head>
       <body>
@@ -66,13 +69,14 @@ function sendMail(data) {
           <div style="display: flex; justify-content: center">
             <h1 style="font-weight: 400">~ RESET HAIR STUDIO ~</h1>
           </div>
-          <h2>Detalles del turno</h2>
           <p>Hola, <strong>${data.name}</strong>.</p>
           <p>Has agendado un turno con <strong>Reset Hair Sutdio</strong>:</p> 
-          <hr />
-            <p>Peluquero: <strong>${data.barber}</strong></p> 
-            <p>Dia: <strong>${data.date}</strong></p>
-            <p>Horario: <strong>${data.time}</strong></p> 
+
+            <div class="datos">
+              <p>Peluquero: <strong>${data.barber}</strong></p> 
+              <p>Dia: <strong>${data.date}</strong></p>
+              <p>Horario: <strong>${data.time}</strong></p> 
+            </div>
             <hr />
     
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
