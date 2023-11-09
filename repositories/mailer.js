@@ -70,9 +70,9 @@ function sendMail(data) {
           <p>Hola, <strong>${data.name}</strong>.</p>
           <p>Has agendado un turno con <strong>Reset Hair Sutdio</strong>:</p>
           <div class="datos">
-            <p>Peluquero: <strong>${data.barber}</strong></p>
-            <p>Dia: <strong>${data.date}</strong></p>
-            <p>Horario: <strong>${data.time}</strong></p>
+            <p>Peluquero: <strong>${data.barber}</strong></p> \n
+            <p>Dia: <strong>${data.date}</strong></p>\n
+            <p>Horario: <strong>${data.time}</strong></p>\n
           </div>
     
           <hr />
