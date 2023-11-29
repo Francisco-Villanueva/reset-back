@@ -3,7 +3,7 @@ const { Barber, Appointment, WorkHours } = require("../models");
 class BarberServices {
   static async getBarbers() {
     return await Barber.findAll({
-      include: [{ model: Appointment }],
+      include: [{ model: Appointment }, { model: WorkHours }],
     });
   }
   static async getOneBarber(id) {

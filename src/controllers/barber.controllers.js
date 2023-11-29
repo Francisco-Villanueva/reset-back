@@ -1,5 +1,4 @@
 const BarberServices = require("../services/barber.services");
-const { generateTimeSlotsByHour } = require("../utils/setSlotsHours");
 
 class BarberController {
   static async getAllBarber(req, res) {
@@ -27,17 +26,13 @@ class BarberController {
 
   static async newBarber(req, res) {
     try {
-      const { name, lastName, start_time, end_time } = req.body;
+      const { name, lastName } = req.body;
 
-      if (!name || !lastName || !start_time || !end_time) {
+      if (!name || !lastName) {
         return res.status(401).send("Faltan datos!");
       }
-      const hours = generateTimeSlotsByHour(start_time, end_time);
 
-      const newBarber = await BarberServices.createBarber({
-        ...req.body,
-        hours,
-      });
+      const newBarber = await BarberServices.createBarber(req.body);
 
       res.status(200).json({ newBarber });
     } catch (error) {
@@ -48,9 +43,7 @@ class BarberController {
 
   static async updateHours(req, res) {
     try {
-      const { start_time, end_time } = req.body;
-
-      const hours = generateTimeSlotsByHour(start_time, end_time);
+      const { hours } = req.body;
 
       const newBarber = await BarberServices.updateBarberHours(req.params.id, {
         ...req.body,
