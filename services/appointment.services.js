@@ -19,7 +19,6 @@ class AppointmentServices {
     });
 
     if (newSlot) {
-      //SI ES NUEVO ==> RETORNO   EL CREATE DE UN APPOINTMENT
       const newAppointment = await Appointment.create({
         ...data,
       });
@@ -29,7 +28,6 @@ class AppointmentServices {
         createdAppoint: true,
       };
     } else if (slot.avaliable) {
-      //SI NO ES NUEVO ==> RETORNO   EL CREATE DE UN APPOINTMENT y Actualizo el slot avaliable
       slot.avaliable = false;
       await slot.save();
       const newAppointment = await Appointment.create({

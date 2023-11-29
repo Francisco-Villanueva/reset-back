@@ -5,12 +5,8 @@ class Workhours extends Model {}
 
 Workhours.init(
   {
-    start_time: {
-      type: DataTypes.TIME,
-      allowNull: false,
-    },
-    end_time: {
-      type: DataTypes.TIME,
+    numberDay: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     hours: {
