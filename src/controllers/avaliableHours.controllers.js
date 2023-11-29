@@ -1,5 +1,6 @@
 const AvliableHoursService = require("../services/avaliableHours.services");
 const BarberServices = require("../services/barber.services");
+const WorkHoursServices = require("../services/workhours.services");
 
 class AvliableHoursController {
   static async getAllSlots(req, res, next) {
@@ -16,16 +17,23 @@ class AvliableHoursController {
     try {
       const { barberId, date } = req.params;
 
+      const formatDate = new Date(date).getDay().toString();
       const slots = await AvliableHoursService.getSlotsByDateAndBarber(
         date,
         barberId
       );
       const oneBarber = await BarberServices.getOneBarber(barberId);
 
+      const workDay = await WorkHoursServices.findByDay(
+        formatDate,
+        oneBarber.id
+      );
+
       const bussySlots = slots
         .filter((slot) => !slot.avaliable)
         .map((slot) => slot.time);
-      const slotsDay = oneBarber?.hours.map((hs) => ({
+
+      const slotsDay = workDay?.hours.map((hs) => ({
         hs: hs,
         avaliable: !bussySlots.includes(hs),
       }));

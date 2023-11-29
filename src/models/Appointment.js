@@ -36,15 +36,6 @@ Appointment.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    // dayId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: true,
-    // },
-    // isBooked: {
-    //   type: DataTypes.BOOLEAN,
-    //   allowNull: false,
-    //   defaultValue: false,
-    // },
   },
 
   { sequelize: db, modelName: "appointment", timestamps: false }
