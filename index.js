@@ -6,7 +6,6 @@ const cors = require("cors");
 const db = require("./db");
 const models = require("./models");
 require("dotenv").config();
-const { PORT } = process.env;
 const client = require("./repositories/whatsapper");
 const corsOptions = {
   origin: [
@@ -26,6 +25,6 @@ db.sync({ alter: true }).then(() => {
   console.log("db connected successfully");
 });
 
-app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}, inicando wp`);
+app.listen(process.env.PORT, () => {
+  console.log(`server running on port ${process.env.PORT}, inicando wp`);
 });
