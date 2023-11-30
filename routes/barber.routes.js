@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", BarberController.getAllBarber);
 router.post("/", BarberController.newBarber);
 router.get("/:id", BarberController.getBarberById);
-router.put("/:id", BarberController.updateHours);
+router.put("/:id", BarberController.updateBarber);
 router.delete("/:id", BarberController.deleteBarber);
 
 module.exports = router;

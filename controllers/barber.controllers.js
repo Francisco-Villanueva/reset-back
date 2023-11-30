@@ -41,16 +41,14 @@ class BarberController {
     }
   }
 
-  static async updateHours(req, res) {
+  static async updateBarber(req, res) {
     try {
-      const { hours } = req.body;
+      const updatedBarber = await BarberServices.updateBarberHours(
+        req.params.id,
+        req.body
+      );
 
-      const newBarber = await BarberServices.updateBarberHours(req.params.id, {
-        ...req.body,
-        hours,
-      });
-
-      res.status(200).json(newBarber);
+      res.status(200).json(updatedBarber);
     } catch (error) {
       console.log(error);
     }

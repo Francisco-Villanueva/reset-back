@@ -57,6 +57,7 @@ class AppointmentController {
 
       //SI LLEGA A ESTE PUNTO, EL DIA Y HORARIO COINCIDEN CON LOS DISPONIBLES POR EL BARBER
       //AHORA HAY QUE VERIFICAR SI EL TURNO ESTA DISPONIBLE
+
       const resp = await AppointmentServices.newAppointment(req.body);
 
       if (!resp.createdAppoint) {
