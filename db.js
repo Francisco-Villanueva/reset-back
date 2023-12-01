@@ -1,8 +1,8 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
-const { RENDER_URL } = process.env;
+const { DB_URL } = process.env;
 
-const db = new Sequelize(RENDER_URL, {
+const db = new Sequelize(DB_URL, {
   dialect: "postgres",
   logging: false,
   dialectOptions: {},
