@@ -1,3 +1,4 @@
+const { compare } = require("bcrypt");
 const { Barber, Appointment, WorkHours } = require("../models");
 
 class BarberServices {
@@ -5,6 +6,24 @@ class BarberServices {
     return await Barber.findAll({
       include: [{ model: Appointment }, { model: WorkHours }],
     });
+  }
+  static async findBy(key, value) {
+    return await Barber.findOne({ where: { [key]: value } });
+  }
+  static async checkUser(userName, password) {
+    const userByUserName = await this.findBy("userName", userName);
+    if (userByUserName) {
+      const match = await compare(password, userByUserName.password);
+      if (match) return userByUserName;
+    }
+
+    const userByEmail = await this.findBy("email", userName);
+    if (userByEmail) {
+      const match = await compare(password, userByEmail.password);
+      if (match) return userByEmail;
+    }
+
+    return null;
   }
   static async getOneBarber(id) {
     return await Barber.findByPk(id);
