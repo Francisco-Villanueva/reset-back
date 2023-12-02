@@ -26,7 +26,10 @@ class BarberServices {
     return null;
   }
   static async getOneBarber(id) {
-    return await Barber.findByPk(id);
+    return await Barber.findOne({
+      where: { id },
+      include: [{ model: Appointment }, { model: WorkHours }],
+    });
   }
   static async createBarber(data) {
     return await Barber.create(data);
