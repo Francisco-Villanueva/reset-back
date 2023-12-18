@@ -10,9 +10,11 @@ const client = require("./repositories/whatsapper");
 const corsOptions = {
   origin: [
     "http://localhost:5173",
+    "http://localhost:3001",
     "http://localhost:8080",
     "https://reset-client.vercel.app",
     "https://reser-admin-client.vercel.app",
+    "https://restt-cancel-turnos.vercel.app/",
   ],
   credentials: true,
 };
