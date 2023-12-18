@@ -80,7 +80,7 @@ function sendMail(data) {
             <hr />
     
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
-          <a class="button" href="https://reset-client.vercel.app/turnos/${data.id}"
+          <a class="button" href="https://restt-cancel-turnos.vercel.app/${data.id}"
             >Cancelar turno</a
           >
         </div>
