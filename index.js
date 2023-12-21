@@ -23,7 +23,6 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-// Middleware para verificar la API Key
 const verifyApiKey = (req, res, next) => {
   const apiKey = req.query.API_KEY;
   if (!apiKey || apiKey !== process.env.API_KEY) {
@@ -32,8 +31,7 @@ const verifyApiKey = (req, res, next) => {
   next();
 };
 app.use(express.static(path.join(__dirname, "public")));
-// Aplicar el middleware a todas las rutas bajo /api
-// app.use("/api", routes);
+
 app.use("/api", verifyApiKey, routes);
 db.sync({ alter: true }).then(() => {
   console.log("db connected successfully");

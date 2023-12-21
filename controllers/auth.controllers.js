@@ -12,7 +12,7 @@ class AuthControllers {
       if (!userToCheck) return res.status(400).send("user not found!");
 
       const jwt = await AuthServices.generateJWT(userToCheck);
-      res.send(jwt);
+      res.status(201).send(jwt);
     } catch (error) {
       console.log(error);
       res.status(500).send(error);

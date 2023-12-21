@@ -1,11 +1,29 @@
 const { compare } = require("bcrypt");
 const { Barber, Appointment, WorkHours } = require("../models");
+const { where } = require("sequelize");
 
 class BarberServices {
   static async getBarbers() {
     return await Barber.findAll({
       include: [{ model: Appointment }, { model: WorkHours }],
     });
+  }
+  static async getActiveBarbers() {
+    return await Barber.findAll(
+      {
+        where: [
+          {
+            isAdmin: false,
+          },
+          {
+            status: ["active"],
+          },
+        ],
+      },
+      {
+        include: [{ model: Appointment }, { model: WorkHours }],
+      }
+    );
   }
   static async findBy(key, value) {
     return await Barber.findOne({ where: { [key]: value } });
