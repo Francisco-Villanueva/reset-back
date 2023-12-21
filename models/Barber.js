@@ -19,7 +19,7 @@ Barber.init(
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     password: {
       type: DataTypes.STRING,
@@ -33,6 +33,10 @@ Barber.init(
     urLPhoto: {
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    status: {
+      type: DataTypes.ENUM(["active", "inactive"]),
+      defaultValue: "active",
     },
   },
   {

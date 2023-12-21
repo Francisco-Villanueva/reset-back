@@ -5,10 +5,19 @@ class BarberController {
     try {
       const allBarbers = await BarberServices.getBarbers();
 
-      res.status(200).json(allBarbers);
+      res.status(200).json(allBarbers.filter((barber) => !barber.isAdmin));
     } catch (error) {
       res.status(500);
+      console.log(error);
+    }
+  }
+  static async getActiveBarbers(req, res) {
+    try {
+      const activeBarbers = await BarberServices.getActiveBarbers();
 
+      res.status(200).json(activeBarbers);
+    } catch (error) {
+      res.status(500);
       console.log(error);
     }
   }
@@ -19,6 +28,17 @@ class BarberController {
       const barber = await BarberServices.getOneBarber(id);
 
       res.status(200).json(barber);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  static async getAppointmentsByBarber(req, res) {
+    try {
+      const { id } = req.params;
+
+      const barber = await BarberServices.getOneBarber(id);
+
+      res.status(200).json(barber.appointments);
     } catch (error) {
       console.log(error);
     }
