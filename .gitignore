@@ -3,6 +3,8 @@
 
 # Local environment configuration file
 /.env
+.env.development
+.env.production
 /.env.testing
 /.wwebjs_auth
 /.wwebjs_cache

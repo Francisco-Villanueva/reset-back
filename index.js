@@ -1,4 +1,9 @@
 "use strict";
+if (process.env.NODE_ENV === "production") {
+  require("dotenv").config({ path: ".env.production" });
+} else {
+  require("dotenv").config({ path: ".env.development" });
+}
 const express = require("express");
 const app = express();
 const routes = require("./routes");
@@ -7,7 +12,6 @@ const db = require("./db");
 const models = require("./models");
 const path = require("path");
 
-require("dotenv").config();
 const client = require("./repositories/whatsapper");
 const corsOptions = {
   origin: [
@@ -34,10 +38,16 @@ const verifyApiKey = (req, res, next) => {
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api", verifyApiKey, routes);
-db.sync({ alter: true }).then(() => {
-  console.log("db connected successfully");
-});
+db.sync({ alter: true })
+  .then(() => {
+    console.log("db connected successfully");
+  })
+  .catch((error) => {
+    console.error("Error at db sync:", error);
+  });
 
 app.listen(process.env.PORT, () => {
-  console.log(`server running on port ${process.env.PORT}, inicando wp`);
+  console.log(
+    `server running on port ${process.env.PORT}, Enviroment --> ${process.env.NODE_ENV}`
+  );
 });
