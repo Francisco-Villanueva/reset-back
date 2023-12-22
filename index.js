@@ -17,7 +17,7 @@ const corsOptions = {
     "https://reset-client.vercel.app",
     "https://reser-admin-client.vercel.app",
     "https://restt-cancel-turnos.vercel.app",
-    "https://salonreset.com.ar/",
+    "https://salonreset.com.ar",
   ],
   credentials: true,
 };
