@@ -37,7 +37,7 @@ const verifyApiKey = (req, res, next) => {
 };
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/api", verifyApiKey, routes);
+app.use("/api",  routes);
 db.sync({ alter: true })
   .then(() => {
     console.log("db connected successfully");
