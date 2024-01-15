@@ -27,4 +27,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - name: Adding enviroments variables
+      run: | 
+        touch .env
+        echo "${{ secrets.PROD_ENV_FILE }}" > .env
     - run: pm2 restart ResetApi
