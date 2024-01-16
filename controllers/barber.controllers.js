@@ -1,4 +1,5 @@
 const BarberServices = require("../services/barber.services");
+const WorkHoursServices = require("../services/workhours.services");
 
 class BarberController {
   static async getAllBarber(req, res) {
@@ -52,8 +53,25 @@ class BarberController {
         return res.status(401).send("Faltan datos!");
       }
 
-      const newBarber = await BarberServices.createBarber(req.body);
+      const DEFAULT_HORUS =  [
+        "10:00",
+        "11:00",
+        "12:00",
+        "15:00",
+        "16:00",
+        "17:00",
+        "18:00",
+        "19:00"
+      ]
 
+      const newBarber = await BarberServices.createBarber(req.body);
+      ["2","3","4","5","6"].forEach(async numberDay=>{
+       await WorkHoursServices.create({
+          barberId: newBarber.id,
+          hours: DEFAULT_HORUS,
+          numberDay
+        })
+      })
       res.status(200).json({ newBarber });
     } catch (error) {
       res.status(500);
