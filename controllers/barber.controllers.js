@@ -44,6 +44,20 @@ class BarberController {
       console.log(error);
     }
   }
+  static async getAppointmentByDate(req, res) {
+    try {
+      const { barberId} = req.params;
+      const { appointmentDate} = req.body;
+
+      const barber = await BarberServices.getOneBarber(barberId);
+      
+      const appointmentsByDate = barber.appointments.filter(appointment=>appointment.date === appointmentDate)
+
+      res.status(200).json(appointmentsByDate)
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   static async newBarber(req, res) {
     try {

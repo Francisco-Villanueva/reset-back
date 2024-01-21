@@ -7,6 +7,7 @@ router.get("/active", BarberController.getActiveBarbers);
 router.post("/", BarberController.newBarber);
 router.get("/:id", BarberController.getBarberById);
 router.get("/:id/appointments", BarberController.getAppointmentsByBarber);
+router.get("/:barberId/appointmentsByDate", BarberController.getAppointmentByDate);
 router.put("/:id", BarberController.updateBarber);
 router.delete("/:id", BarberController.deleteBarber);
 
