@@ -1,6 +1,7 @@
+const { hash } = require("bcrypt");
 const BarberServices = require("../services/barber.services");
 const WorkHoursServices = require("../services/workhours.services");
-
+require("dotenv").config();
 class BarberController {
   static async getAllBarber(req, res) {
     try {
@@ -94,12 +95,17 @@ class BarberController {
   }
 
   static async updateBarber(req, res) {
-    try {
+    try {      
+      if(req.body.password){
+        req.body.password = await hash(
+          req.body.password,
+          parseInt(process.env.HASH_SALT)
+        );
+      }
       const updatedBarber = await BarberServices.updateBarberHours(
         req.params.id,
         req.body
       );
-
       res.status(200).json(updatedBarber);
     } catch (error) {
       console.log(error);
