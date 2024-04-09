@@ -8,8 +8,10 @@ require("dotenv").config();
 class AuthControllers {
   static async login(req, res) {
     try {
+      // console.log()
       const { userName, password } = req.body;
       const userToCheck = await AuthServices.checkUser(userName, password);
+      console.log({userName, password})
       if (!userToCheck) return res.status(400).send("user not found!");
 
       const jwt = await AuthServices.generateJWT(userToCheck);

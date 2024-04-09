@@ -2,6 +2,7 @@ const Barber = require("./Barber");
 const Appointment = require("./Appointment");
 const AppointMentSlots = require("./AppointMentSlots");
 const WorkHours = require("./WorkHours");
+const CancelledAppointment = require("./CancelledAppointment");
 Barber.hasMany(Appointment);
 Barber.hasMany(AppointMentSlots);
 Barber.hasMany(WorkHours);
@@ -12,4 +13,5 @@ module.exports = {
   Appointment,
   AppointMentSlots,
   WorkHours,
+  CancelledAppointment
 };
