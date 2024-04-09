@@ -1,4 +1,4 @@
-const { Appointment, AppointMentSlots } = require("../models");
+const { Appointment, AppointMentSlots, CancelledAppointment } = require("../models");
 
 class AppointmentServices {
   static async getAllAppointments() {
@@ -45,19 +45,35 @@ class AppointmentServices {
       };
     }
   }
-
-  static async dropAppointment(id, data) {
+  static async cancelledAppointments(barberId){
+    return await CancelledAppointment.findAll({
+      where:{barberId}
+    })
+  }
+  static async dropAppointment(id, appointmentData) {
     await AppointMentSlots.update(
       { avaliable: true },
       {
         where: {
-          date: data.date,
-          time: data.time,
-          barberId: data.barberId,
+          date: appointmentData.date,
+          time: appointmentData.time,
+          barberId: appointmentData.barberId,
         },
       }
     );
 
+    
+    await CancelledAppointment.create({
+      name: appointmentData.name,
+      email: appointmentData.email,
+      phone: appointmentData.phone,
+      time: appointmentData.time,
+      date: appointmentData.date,
+      barberId: appointmentData.barberId,
+    });
+
+   
+    
     await Appointment.destroy({
       where: {
         id,

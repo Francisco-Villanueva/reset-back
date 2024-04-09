@@ -29,13 +29,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(express.json());
-const verifyApiKey = (req, res, next) => {
-  const apiKey = req.query.API_KEY;
-  if (!apiKey || apiKey !== process.env.API_KEY) {
-    return res.status(401).json({ error: "Acceso no autorizado" });
-  }
-  next();
-};
+
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/api",  routes);

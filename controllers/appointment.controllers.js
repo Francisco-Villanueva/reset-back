@@ -25,6 +25,15 @@ class AppointmentController {
     }
   }
 
+  static async getCancelledAppointments(req,res, next){
+    try {
+        const {barberId} = req.params
+        const cancelledAppointments = await AppointmentServices.cancelledAppointments(barberId)
+        res.json(cancelledAppointments)
+    } catch (error) {
+        next(error);
+    }
+}
   static async createAppointment(req, res, next) {
     try {
       const { date, name, email, phone, time, barberId } = req.body;
@@ -82,18 +91,23 @@ class AppointmentController {
 
   static async deleteAppointment(req, res, next) {
     try {
-      const oneAppointment = await AppointmentServices.getOneAppointments(
+      const appointment = await AppointmentServices.getOneAppointments(
         req.params.id
       );
-      if (!oneAppointment) {
+      if (!appointment) {
         return res.status(401).send("Appointment not found!");
       }
-      await AppointmentServices.dropAppointment(oneAppointment.id, {
-        date: oneAppointment.date,
-        time: oneAppointment.time,
-        barberId: oneAppointment.barberId,
+      await AppointmentServices.dropAppointment(appointment.id, {
+        name: appointment.name,
+        email: appointment.email,
+        phone: appointment.phone,
+        time: appointment.time,
+        date: appointment.date,
+        barberId: appointment.barberId,
       });
 
+
+   
       res.status(200).json({ msg: "Appointment deleted!" });
     } catch (error) {
       next(error);
