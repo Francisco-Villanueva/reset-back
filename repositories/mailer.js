@@ -37,7 +37,7 @@ function sendMail(data) {
           }
           p {
             font-size: 16px;
-            line-height: 1.6;
+            line-height: 1.2;
           }
           .button {
             display: inline-block;
@@ -47,7 +47,18 @@ function sendMail(data) {
             font-weight: bold;
             text-align: center;
             text-decoration: none;
-            background-color: #347469;
+            background-color: #ec0000    ;
+            color: #fff !important;
+            border-radius: 5px;
+          }
+          .button-form {
+            padding: 10px 20px;
+            margin: 5px 0;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background-color: purple;
             color: #fff !important;
             border-radius: 5px;
           }
@@ -67,18 +78,21 @@ function sendMail(data) {
       <body>
         <div class="container">
           <div style="display: flex; justify-content: center">
-            <h1 style="font-weight: 400">~ RESET HAIR STUDIO ~</h1>
+            <h1 style="font-weight: 400">~ RESET SALON ~</h1>
           </div>
           <p>Hola, <strong>${data.name}</strong>.</p>
           <p>Has agendado un turno con <strong>Reset Hair Sutdio</strong>:</p> 
 
-            <div class="datos">
+          
               <p>Peluquero: <strong>${data.barber}</strong></p> 
               <p>Dia: <strong>${data.date}</strong></p>
               <p>Horario: <strong>${data.time}</strong></p> 
-            </div>
-            <hr />
-    
+         
+       
+              <p>Nos gustaria conocer tu expriencia en reset salon.</p>
+              <a  href="https://forms.gle/3hgYnt8FL5SpSKXU9" class="button-form">Servicio Reset Salon</a>
+      
+
           <p>Para cancelar el turno, haz click en el siguiente boton</p>
           <a class="button" href="https://restt-cancel-turnos.vercel.app/${data.id}"
             >Cancelar turno</a
